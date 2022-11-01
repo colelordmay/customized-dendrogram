@@ -1,17 +1,3 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.14.0
-  kernelspec:
-    display_name: Python 3.10.6 ('sodar')
-    language: python
-    name: python3
----
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
