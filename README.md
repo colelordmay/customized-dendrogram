@@ -1,3 +1,6 @@
+The aim of this code is to make a more visually appealing dendrogram in python that is still very easy to use.
+This code still calls scipy.cluster.hierarchy, but reconstructs the dendrogram in a way that can be modified by the user more easily.
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,7 +15,7 @@ np.random.seed(12345)
 dat = np.exp(-(x-np.random.randn(100,1)/4)**(2*np.floor(10*np.random.random([100,1]))))
 plt.plot(x,dat.T);
 ```
-
+![](images/im1.png)
 ## First, let's look at the 'default' dendrogram and the reconstructed signals that come from it
 
 ```python
@@ -35,7 +38,7 @@ clus = shc.fcluster(Z,n,criterion='maxclust')-1  ### -1 as default counting star
 for i in range(n):
     plt.plot(x,dat[clus==i].mean(axis=0))
 ```
-
+![](images/im2.png)
 ## This Dendrogram and reconstructed data aren't great, as:
 1. The labels on the x axis have limited meaning
 2. No indication of where the cutoff is visually 
@@ -57,7 +60,7 @@ for i in range(n):
     ax[1].plot(x,dat[clus==i].mean(axis=0),c=colors[i])
 ax[1].legend(labels)
 ```
-
+![](images/im3.png)
 ```python
 ### Another example with more clusters and no reconstruction
 
@@ -73,3 +76,4 @@ ax, clus = dendro.improved_dendrogram(ax, dat, n, p=30, c_list = colors)
 ```python
 
 ```
+![](images/im4.png)
